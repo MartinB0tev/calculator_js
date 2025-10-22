@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калкулатор</title>
+<link rel="stylesheet" href="/calculator_js/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="calculator">
+    <div class="top-bar">
+      <div class="theme-buttons">
+        <button onclick="setTheme('light')">☀️</button>
+        <button onclick="setTheme('dark')">🌙</button>
+        <button onclick="setTheme('blue')">💧</button>
+        <button onclick="setTheme('green')">🌿</button>
+      </div>
+      <button class="sci-toggle" onclick="toggleScientific()">Scientific</button>
+    </div>
+
+    <div id="display">
+      <input id="display-input" type="text" value="0">
+      <div id="error-box"></div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="clearAll()">C</button>
+      <button onclick="backspace()">CE</button>
+      <button onclick="append('/')">÷</button>
+      <button onclick="append('*')">×</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('-')">−</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="calculate()">=</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+    </div>
+
+    <div id="scientific" class="scientific" style="display:none;">
+      <button onclick="insertFunc('sin')">sin</button>
+      <button onclick="insertFunc('cos')">cos</button>
+      <button onclick="insertFunc('tan')">tan</button>
+      <button onclick="insertFunc('log')">log</button>
+      <button onclick="insertFunc('ln')">ln</button>
+      <button onclick="insertFunc('√')">√</button>
+      <button onclick="append('**2')">x²</button>
+      <button onclick="append('**3')">x³</button>
+      <button onclick="append('**')">xʸ</button>
+      <button onclick="append('π')">π</button>
+      <button onclick="append('e')">e</button>
+      <button onclick="factorial()">n!</button>
+    </div>
+  </div>
+
+  <div id="history">
+    <div id="history-list"></div>
+    <button id="clear-history" onclick="clearHistory()">🗑 Изтрий</button>
+  </div>
+</div>
+
+<script src="/calculator_js/logic.js"></script>
+
+</body>
+</html>
