@@ -59,12 +59,19 @@ function toJS(e){
 
 function calculate(){
   try{
-    let res=eval(toJS(input.value));
-    if(isNaN(res)||!isFinite(res))throw "Err";
-    addHistory(input.value,res);input.value=res;errorBox.textContent="";
-  }catch{showError("Невалидно изчисление");input.value="";}
+    let res = eval(toJS(input.value));
+    if(!isFinite(res) || isNaN(res)) throw "Err";
+    res = Math.round(res * 1e10) / 1e10; // <-- round result
+    addHistory(input.value, res);
+    input.value = res;
+    errorBox.textContent = "";
+  } catch {
+    showError("Невалидно изчисление");
+    input.value = "";
+  }
   input.focus();
 }
+
 
 function toggleScientific(){ sci.style.display=sci.style.display==="none"?"grid":"none"; }
 
